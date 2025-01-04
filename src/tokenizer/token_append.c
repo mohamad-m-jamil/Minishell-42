@@ -6,7 +6,7 @@
 /*   By: mjamil <mjamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 16:27:12 by oabdelka          #+#    #+#             */
-/*   Updated: 2025/01/04 14:14:15 by mjamil           ###   ########.fr       */
+/*   Updated: 2025/01/04 14:20:43 by mjamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ void	append(t_tokens **cmds, char *data, int type)
         		return;
     		data = dup_data;
 		}
-		// printf("Command %s not found\n",data);
-		// return;
 
 	if (*cmds == NULL)
 	{

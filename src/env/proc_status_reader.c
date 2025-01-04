@@ -6,7 +6,7 @@
 /*   By: mjamil <mjamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 14:11:45 by mjamil            #+#    #+#             */
-/*   Updated: 2025/01/04 14:11:47 by mjamil           ###   ########.fr       */
+/*   Updated: 2025/01/04 14:17:53 by mjamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,22 +78,3 @@ pid_t	ft_getuid(void)
 	}
 	return (uid);
 }
-
-// pid_t	ft_getpid(void)
-// {
-// 	int		fd;
-// 	char	*line;
-
-// 	fd = open("/proc/self/status", O_RDONLY);
-// 	if (fd == -1)
-// 	{
-// 		perror("open");
-// 		return (-1);
-// 	}
-// 	line = read_pid_line(fd);
-// 	close(fd);
-// 	if (line != NULL)
-// 		return ((pid_t)ft_atoi(line + 4));
-// 	else
-// 		return (-1);
-// }

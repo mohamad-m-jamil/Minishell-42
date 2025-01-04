@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   minishell.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mjamil <mjamil@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/04 14:23:05 by mjamil            #+#    #+#             */
+/*   Updated: 2025/01/04 14:37:34 by mjamil           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
@@ -71,7 +83,7 @@ typedef struct s_env
 	char				*value;
 	int					hidden;
 	struct s_env		*next;
-	int 				two_point;
+	int					two_point;
 }						t_env;
 
 typedef struct s_arg
@@ -92,12 +104,12 @@ typedef struct s_command
 
 typedef struct s_tk
 {
-	int					i;  // Current index in the input string
-	char				*buffer;    // Temporary storage for characters before deciding what token they form
-	int					buf_i;  // Index for the buffer
-	char				quote; // Indicates which quote is open (single `'` or double `"`)
-	int					last_was_space; // Flag for checking if previous character was a space
-	int					foundcmd;  // Flag to indicate if we've identified the "command" token
+	int					i;
+	char				*buffer;
+	int					buf_i;
+	char				quote;
+	int					last_was_space;
+	int					foundcmd;
 }						t_tk;
 
 typedef struct s_cmd
@@ -132,17 +144,8 @@ typedef struct s_ex
 	t_data				*data;
 }						t_ex;
 
-/* ************************************************************************** */
-/*                             GLOBAL VARIABLES                               */
-/* ************************************************************************** */
-
 extern int				g_signalint;
 
-/* ************************************************************************** */
-/*                           FUNCTION PROTOTYPES                              */
-/* ************************************************************************** */
-
-/* ---------------------------- Env & Setup ---------------------------------- */
 void					ft_split_env(char *envp_str, char **key, char **value);
 void					split_envp(char *envp_str, char **key, char **value);
 void					initcmd(char *input, char **env, t_data *data);
@@ -151,10 +154,8 @@ t_env					*create_envp_list_node(char *envp_str, int hidden);
 void					add_node_to_envp_list(t_env **head, t_env **current,
 							t_env *new_node);
 t_env					*init_copy_envp(char **envp);
-int						set_env(t_env **head, const char *key, const char *value,
-							int hidden);
-
-/* ------------------------- Built-in Commands ------------------------------- */
+int						set_env(t_env **head, const char *key,
+							const char *value, int hidden);
 int						pwd_command(t_env *env_list);
 int						exit_command(t_arg *args);
 int						echo_command(t_arg *args);
@@ -163,7 +164,6 @@ int						export_command(t_env **env_list, t_arg *arg);
 int						change_dir(t_arg *args, t_env *env_list);
 int						unset_command(t_arg *args, t_env **env_list);
 
-/* ------------------------------ Utilities --------------------------------- */
 void					print_sorted_env_list(t_env *head);
 void					concatenvtoken(t_data *data);
 void					art(void);
@@ -175,11 +175,9 @@ void					free_args(char **args);
 void					free_list_arg(t_arg *head);
 void					free_resources(char *key, char *value);
 int						is_key_invalid(char *key);
-void					remove_quotes_from_str(char *str);
 int						check_key(char *key);
-void					print_sorted_env_list(t_env *head); /* Duplicate */
+void					print_sorted_env_list(t_env *head);
 
-/* ------------------------------- Signals ----------------------------------- */
 void					noninteractivehandle_sigquit(int sig);
 void					noninteractivehandle_sigint(int sig);
 void					interactivehandle_sigquit(int sig);
@@ -189,7 +187,6 @@ char					*getinfo(t_data *data);
 void					interactivemode(t_data *data, char **input);
 void					noninteractivemode(t_data *data, char **input);
 
-/* ------------------------------- Parsing ----------------------------------- */
 void					remove_quotes(t_tokens *tokens);
 void					free_data(t_data *data);
 void					free_env_list(t_env *env_list);
@@ -222,7 +219,6 @@ void					process_tokens_loop(t_tokens *tokens,
 							t_command **cmd_list, t_command **current_cmd);
 t_command				*parse_tokens(t_tokens *tokens);
 
-/* ---------------------------- Error Checking ------------------------------- */
 t_tokens				*getprev(t_tokens *token);
 t_tokens				*getnext(t_tokens *token);
 int						checkpipe(t_tokens *token);
@@ -241,10 +237,8 @@ int						casenext(t_tokens **tmp);
 void					handleerrpipe(t_data *data, t_tokens **tmp,
 							t_tokens **tmpprint);
 
-/* ------------------------------ Tokenizer ---------------------------------- */
 t_tokens				*newnode(char *data, int type);
 void					append(t_tokens **cmds, char *data, int type);
-// void					printcmds(t_data *data);
 t_token					get_delimiter_type(char *str);
 void					inittk(char *input, t_tk *tk, t_data *data);
 void					tk_quote(char *input, t_tk *tk, t_data *data);
@@ -261,8 +255,6 @@ void					tokenizer(char *input, t_data *data);
 void					addnode(t_tokens **tmp, char *data, int type);
 t_tokens				*newnode(char *data, int type); /* Duplicate */
 
-/* ------------------------------ Environment ------------------------------- */
-
 typedef struct s_isexpandable
 {
 	int					i;
@@ -278,20 +270,18 @@ char					*concatenv(char *input, t_data *data);
 int						dollarcount(char *input);
 char					*read_pid_line(int fd);
 ssize_t					read_status_file(char *buffer, size_t size);
-pid_t					ft_getpid(void);
 pid_t					ft_getuid(void);
 void					free_tab(char **tab);
 void					free_list(t_env *head);
 char					*handle_dollar_sign(char *input, t_data *data);
-void					copy_and_append_char(char **result, char *input, int *i);
+void					copy_and_append_char(char **result,
+							char *input, int *i);
 void					handle_question_mark(char **result, int *i,
 							t_data *data);
 void					handle_two_dollar(char **result, int *i);
 void					handle_normal_variable(char *input, int *i,
 							char **result, t_env *env);
 int						isquote(char c);
-
-/* ------------------------------ Execution --------------------------------- */
 
 typedef struct s_heredocs
 {

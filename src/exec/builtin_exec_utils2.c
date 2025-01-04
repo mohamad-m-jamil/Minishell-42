@@ -6,7 +6,7 @@
 /*   By: mjamil <mjamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 14:12:41 by mjamil            #+#    #+#             */
-/*   Updated: 2025/01/04 14:12:43 by mjamil           ###   ########.fr       */
+/*   Updated: 2025/01/04 14:19:38 by mjamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,21 +47,6 @@ int	execute_builtin_command(t_command *command, t_data *data)
 		returnstatus = (execexport(command, data));
 	return (returnstatus);
 }
-
-// if (ft_strcmp(command->args->arg, "cd") == 0
-// 	&& ft_strlen(command->args->arg) == 2)
-// if (ft_strcmp(command->args->arg, "pwd") == 0
-// 	&& ft_strlen(command->args->arg) == 3)
-// if (ft_strcmp(command->args->arg, "env") == 0
-// 	&& ft_strlen(command->args->arg) == 3)
-// if (ft_strcmp(command->args->arg, "echo") == 0
-// 	&& ft_strlen(command->args->arg) == 4)
-// if (ft_strcmp(command->args->arg, "exit") == 0
-// 	&& ft_strlen(command->args->arg) == 4)
-// if (ft_strcmp(command->args->arg, "unset") == 0
-// 	&& ft_strlen(command->args->arg) == 5)
-// if (ft_strcmp(command->args->arg, "export") == 0
-// 	&& ft_strlen(command->args->arg) == 6)
 
 void	dupexecnofork(t_command *command)
 {

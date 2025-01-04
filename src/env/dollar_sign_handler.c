@@ -6,7 +6,7 @@
 /*   By: mjamil <mjamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 14:11:11 by mjamil            #+#    #+#             */
-/*   Updated: 2025/01/04 14:11:13 by mjamil           ###   ########.fr       */
+/*   Updated: 2025/01/04 14:18:49 by mjamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,6 @@ void	handle_normal_variable(char *input, int *i, char **result, t_env *env)
 	else
 		*result = ft_strjoingnl(*result, "$");
 }
-// *result = ft_strjoingnl(*result, env_value);
-// else
-// 	*result = ft_strdup(env_value);
 
 void	handle_two_dollar(char **result, int *i)
 {
@@ -98,17 +95,3 @@ char	*handle_dollar_sign(char *input, t_data *data)
 	free(input);
 	return (result);
 }
-
-// t_tokens	*dollar_expansion(t_tokens *tokens_list, t_data *data)
-// {
-// 	t_tokens	*current_token;
-// 	current_token = tokens_list;
-// 	while (current_token)
-// 	{
-// 		if (current_token->content && ft_strchr(current_token->content, '$'))
-// 			current_token->content = handle_dollar_sign(current_token->content,
-// 					data);
-// 		current_token = current_token->next;
-// 	}
-// 	return (tokens_list);
-// }

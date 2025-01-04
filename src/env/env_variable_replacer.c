@@ -6,7 +6,7 @@
 /*   By: mjamil <mjamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 14:11:40 by mjamil            #+#    #+#             */
-/*   Updated: 2025/01/04 14:11:42 by mjamil           ###   ########.fr       */
+/*   Updated: 2025/01/04 14:19:12 by mjamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,62 +95,3 @@ char	*concatenvloop(char *input, t_data *data)
 	free(before);
 	return (new_input);
 }
-
-// char	*concatenvloop(char *input, t_data *data)
-// {
-// 	int		i;
-// 	int		j;
-// 	int		inq;
-// 	char	*before;
-// 	char	*after;
-// 	char	*key;
-
-// 	i = 0;
-// 	inq = 0;
-// 	while (input[i] != '$' && input[i] != '\0')
-// 	{
-// 		if (input[i] == '"')
-// 			inq = !inq;
-// 		if (input[i] == '\'' && !inq)
-// 		{
-// 			i++;
-// 			while (input[i] != '\'' && input[i] != '\0')
-// 				i++;
-// 		}
-// 		i++;
-// 	}
-// 	before = ft_strnew(i + 1);
-// 	ft_strlcpy(before, input, i + 1);
-// 	j = i;
-// 	while (input[j] != ' ' && input[j] != '\0' && input[j] != '\"'
-// 		&& input[j] != '\'')
-// 	{
-// 		if (input[j] == '"')
-// 			inq = !inq;
-// 		if (input[j] == '\'' && !inq)
-// 		{
-// 			j++;
-// 			while (input[j] != '\'' && input[j] != '\0')
-// 				j++;
-// 		}
-// 		else
-// 			j++;
-// 	}
-// 	printf("inq:%d\n", inq);
-// 	key = ft_strnew(j - i + 1);
-// 	ft_strlcpy(key, (input + i), j - i + 1);
-// 	after = ft_strnew(ft_strlen(input) - ft_strlen(before) + ft_strlen(key)
-// 			+ 1);
-// 	ft_strlcpy(after, (input + j), ft_strlen(input) - ft_strlen(before)
-// 		+ ft_strlen(key) + 1);
-// 	free(input);
-// 	key = envvaluestr(key + 1, data);
-// 	input = ft_strdup("");
-// 	input = ft_strjoingnl(input, before);
-// 	input = ft_strjoingnl(input, key);
-// 	input = ft_strjoingnl(input, after);
-// 	free(before);
-// 	free(key);
-// 	free(after);
-// 	return (input);
-// }

@@ -6,7 +6,7 @@
 /*   By: mjamil <mjamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 14:11:28 by mjamil            #+#    #+#             */
-/*   Updated: 2025/01/04 14:11:31 by mjamil           ###   ########.fr       */
+/*   Updated: 2025/01/04 14:19:01 by mjamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,29 +84,3 @@ void	print_list(t_env *env_head)
 		current_env = current_env->next;
 	}
 }
-
-// int	unset_env(t_env **head, const char *key)
-// {
-// 	t_env	*current;
-// 	t_env	*previous;
-
-// 	current = *head;
-// 	previous = NULL;
-// 	while (current)
-// 	{
-// 		if (ft_strcmp(current->key, key) == 0)
-// 		{
-// 			if (previous)
-// 				previous->next = current->next;
-// 			else
-// 				*head = current->next;
-// 			free(current->key);
-// 			free(current->value);
-// 			free(current);
-// 			return (0);
-// 		}
-// 		previous = current;
-// 		current = current->next;
-// 	}
-// 	return (-1);
-// }

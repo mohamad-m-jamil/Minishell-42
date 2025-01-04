@@ -6,7 +6,7 @@
 /*   By: mjamil <mjamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 14:11:17 by mjamil            #+#    #+#             */
-/*   Updated: 2025/01/04 14:11:19 by mjamil           ###   ########.fr       */
+/*   Updated: 2025/01/04 14:18:54 by mjamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,38 +68,3 @@ int	dollarcount(char *input)
 	}
 	return (count);
 }
-
-// int	dollarcount(char *input)
-// {
-// 	int	i;
-// 	int	count;
-// 	int	inq;
-
-// 	inq = 0;
-// 	i = 0;
-// 	count = 0;
-// 	while (input[i] != '\0')
-// 	{
-// 		if (input[i] == '$' && !isalpha(input[i + 1]))
-// 		{
-// 			i++;
-// 			while (input[i] != ' ' && input[i] != '\0' && input[i] != '\"')
-// 				i++;
-// 			i++;
-// 		}
-// 		if (input[i] == '$')
-// 			count++;
-// 		if (input[i] == '"')
-// 			inq = !inq;
-// 		if (input[i] == '\'' && !inq)
-// 		{
-// 			i++;
-// 			while (input[i] != '\'' && input[i] != '\0')
-// 				i++;
-// 			i++;
-// 		}
-// 		else
-// 			i++;
-// 	}
-// 	return (count);
-// }

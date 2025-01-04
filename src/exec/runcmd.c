@@ -128,37 +128,3 @@ void	initcmd(char *input, char **env, t_data *data)
 	(void)command;
 	(void)data;
 }
-// free(input);
-// checksyntaxerror(data);
-// command = parse_tokens(data->cmdchain);
-// execute_pipeline(command, data);
-// void	print_command_list(t_command *cmd_list)
-// {
-// 	t_command *cmd;
-// 	t_arg *arg;
-// 	int cmd_num;
-
-// 	cmd = cmd_list;
-// 	cmd_num = 1;
-// 	while (cmd)
-// 	{
-// 		printf("Command %d:\n", cmd_num);
-// 		arg = cmd->args;
-// 		while (arg)
-// 		{
-// 			printf("  Arg: %s\n", arg->arg);
-// 			arg = arg->next;
-// 		}
-// 		if (cmd->infile != STDIN_FILENO)
-// 			printf("  Input File: (fd: %d)\n", cmd->infile);
-// 		else
-// 			printf("  Input File: STDIN\n");
-// 		if (cmd->outfile != STDOUT_FILENO)
-// 			printf("  Output File: (fd: %d)\n", cmd->outfile);
-// 		else
-// 			printf("  Output File: STDOUT\n");
-// 		printf("Error %d:\n", cmd->error);
-// 		cmd = cmd->next;
-// 		cmd_num++;
-// 	}
-// }
