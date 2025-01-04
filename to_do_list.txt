@@ -1,0 +1,12 @@
+1) '' and ""
+
+## jamil
+1) cmd : echo \n anything
+not necessary.
+2) cmd : echo $""HOME 
+3) cmd : echo $DONTEXIST hola
+there's extra space in the beginning
+4) cmd : e'cho hi'
+   cmd : e"cho hi"
+we get empty line , we must have command not found
+5) env DONTEXIST
